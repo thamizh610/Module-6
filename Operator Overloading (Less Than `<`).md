@@ -1,45 +1,50 @@
-# 🐍 Python OOP: Operator Overloading (Less Than `<`)
+# 🐍 Python OOP: Polymorphism with Classes
 
 ## 🎯 AIM
 
-To write a Python program that demonstrates **operator overloading** by overloading the **less than (`<`)** operator using a custom class.
+To create two specific classes — `Beans` and `Mango`. Then, create a **generic function** that can accept any object and determine its **type** (Fruit or Vegetable) and **color**, using polymorphism.
 
 ---
 
 ## 🧠 ALGORITHM
 
-1. **Create Class `A`**:
-   - Define the `__init__()` method to initialize the object with a value `a`.
+1. **Create Class `Beans`**:
+   - Define `type()` method that prints `"Vegetable"`.
+   - Define `color()` method that prints `"Green"`.
 
-2. **Overload the `<` Operator**:
-   - Define the `__lt__()` method with logic:
-     - If `self.a < o.a`, return `"ob1 is less than ob2"`
-     - Else, return `"ob2 is less than ob1"`
+2. **Create Class `Mango`**:
+   - Define `type()` method that prints `"Fruit"`.
+   - Define `color()` method that prints `"Yellow"`.
 
-3. **Create Objects**:
-   - Instantiate two objects `ob1` and `ob2` with values.
+3. **Define Generic Function `func(obj)`**:
+   - Call `obj.type()` and `obj.color()` — this works with both `Beans` and `Mango` objects, showcasing **polymorphism**.
 
-4. **Use `<` Operator**:
-   - Use `print(ob1 < ob2)` to trigger the overloaded behavior.
+4. **Create Objects**:
+   - Instantiate `Beans` and `Mango`.
+   - Pass them to `func()` and execute the program.
 
 ---
 
 ## 💻 Program
 ```
-class A:
-    def __init__(self,a):
-        self.a=a
-    def __gt__(self,other):
-        return self.a<other.a
-ob1=A(200)
-ob2=A(30)
-if(ob1<ob2):
-    print("ob2 is less than ob1")
-else:
-    print("ob1 is less than ob1")
+class Beans(): 
+     def type(self): 
+       print("Vegetable") 
+     def color(self):
+       print("Green") 
+class Mango(): 
+     def type(self): 
+       print("Fruit") 
+     def color(self): 
+       print("Yellow")
+obj_beans = Beans() 
+obj_mango = Mango()
+for func in (obj_beans,obj_mango): 
+    func.type()
+    func.color()
 ```
 ## Output
-<img width="1177" height="268" alt="image" src="https://github.com/user-attachments/assets/fe9fe794-ef95-4a64-8260-bdc32f8d73dc" />
+<img width="1181" height="342" alt="image" src="https://github.com/user-attachments/assets/9ab36b0a-5058-4684-925f-e16569f1e8c4" />
 
 ## Result
 Thus,the program is executed successfully.
